@@ -33,7 +33,7 @@
 
 		<div id="thanks">
 			<h3>thanks</h3>
-			<h4>we'll be in touch soon! test update</h4>
+			<h4>we'll be in touch soon!</h4>
 		</div>
 
 	</section>
