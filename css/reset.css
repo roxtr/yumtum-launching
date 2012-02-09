@@ -1,5 +1,6 @@
 /* v1.0 | 20080212 */
-html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,em,font,img,form,label {
+
+html, body, div, span,h1, h2, h3, h4, h5, h6, p,a,em, font, img, form, label {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -8,7 +9,6 @@ html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,em,font,img,form,label {
 	vertical-align: baseline;
 	background: transparent;
 }
-
 body {
 	line-height: 1;
 }
