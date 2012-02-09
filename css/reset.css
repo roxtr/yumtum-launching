@@ -1,0 +1,19 @@
+/* v1.0 | 20080212 */
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,em,font,img,form,label {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+body {
+	line-height: 1;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
