@@ -19,7 +19,7 @@ public class LaunchHelper {
 
 	static Logger log = Logger.getLogger(LaunchHelper.class);
 	
-    public String insertData(String email,String refId){
+    public String insertData(String email,String srefId){
     	
     	log.info("In LaunchHelper.insertData");
     	
@@ -56,10 +56,15 @@ public class LaunchHelper {
         		java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
            		String currentTime = sdf.format(dt);
            		
-	       	  	sql = "insert into betausers (email,regDate) values(?,?)";
+           		String urefId = genUniqueRandomStr();
+           		
+	       	  	sql = "insert into betausers (email,regDate,srefId,urefId) values(?,?,?,?)";
 	    		pst = conn.prepareStatement(sql);
 	    		pst.setString(1, email);
 	    		pst.setString(2, currentTime);
+	    		pst.setString(3, srefId);
+	    		pst.setString(4, urefId);
+	    		
 	    		log.debug("before insert statement execute query");
 	    		pst.executeUpdate();
 	    		log.debug("after insert statement execute query");
@@ -98,7 +103,7 @@ public class LaunchHelper {
 		ResultSet rs = null;
 
 		String count = null;
-		sql = "select count(*) from betausers where refId in(?)";
+		sql = "select count(*) from betausers where urefId in(?)";
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, randomStr);
@@ -131,7 +136,7 @@ public class LaunchHelper {
     	
     	unqRandomStr = generateRandomStr();
     	
-    	if(checkRandomStr(unqRandomStr)){
+    	if(!checkRandomStr(unqRandomStr)){
     		unqRandomStr = genUniqueRandomStr();
     	}
     	

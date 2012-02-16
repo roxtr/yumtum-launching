@@ -27,13 +27,17 @@ public class saveInfo extends HttpServlet {
 	
 		log.info("In do post of saveInfo servlet");
 		
+
 		String email;
 		String refId;
-		String resp;
+		String resp = null;
 		
+		 try{
+		log.debug("Before email");
 		email = request.getParameter("email");
+		log.debug("before ref id");
 		refId = request.getParameter("refId");
-		
+		log.debug("after refid");
 		
 		log.debug("email:"+email);
 		log.debug("email:"+refId);
@@ -44,6 +48,11 @@ public class saveInfo extends HttpServlet {
 		
 		LaunchHelper helper = new LaunchHelper();
 		resp = helper.insertData(email,refId);
+		}catch(Exception e){
+			
+			log.error(e.getMessage());
+		}
+		
 		response.setContentType("text/html");
    	    PrintWriter out = response.getWriter();
    	    out.write(resp);
