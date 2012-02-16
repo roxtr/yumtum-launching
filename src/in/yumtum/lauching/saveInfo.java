@@ -28,17 +28,27 @@ public class saveInfo extends HttpServlet {
 		log.info("In do post of saveInfo servlet");
 		
 		String email;
+		String refId;
+		String resp;
 		
 		email = request.getParameter("email");
+		refId = request.getParameter("refId");
+		
 		
 		log.debug("email:"+email);
+		log.debug("email:"+refId);
+		
+		if(refId.equals("") || refId.isEmpty()){
+			refId = "Default";
+		}
 		
 		LaunchHelper helper = new LaunchHelper();
-		
+		resp = helper.insertData(email,refId);
 		response.setContentType("text/html");
    	    PrintWriter out = response.getWriter();
-   	    out.write(helper.insertData(email));
+   	    out.write(resp);
 		
+   	    
 	}
 
 }

@@ -10,14 +10,16 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.apache.log4j.BasicConfigurator;
 
 public class LaunchHelper {
 
 	static Logger log = Logger.getLogger(LaunchHelper.class);
 	
-    public String insertData(String email){
+    public String insertData(String email,String refId){
     	
     	log.info("In LaunchHelper.insertData");
     	
@@ -78,7 +80,7 @@ public class LaunchHelper {
     	
     }
 	
-    public String generateRandomStr(){
+    private String generateRandomStr(){
     	
     	String randomStr = null;
     	
@@ -87,7 +89,7 @@ public class LaunchHelper {
     	return randomStr;
     }
     
-    public boolean checkRandomStr(String randomStr){
+    private boolean checkRandomStr(String randomStr){
     	
     	boolean bool = false;
 		Connection conn = getDBConnection();
@@ -119,6 +121,21 @@ public class LaunchHelper {
 			 log.error("exception occoured during sql execution. error is:"+e.getMessage());
 			}
     	return bool;
+    }
+    
+    public String genUniqueRandomStr(){
+    	
+    	String unqRandomStr = "";
+    	
+    	log.info("in getUniqueRandomStr");
+    	
+    	unqRandomStr = generateRandomStr();
+    	
+    	if(checkRandomStr(unqRandomStr)){
+    		unqRandomStr = genUniqueRandomStr();
+    	}
+    	
+    	return unqRandomStr;
     }
 	
 	private Connection getDBConnection(){
@@ -163,7 +180,14 @@ public class LaunchHelper {
 	}
 	
 	public static void main(String args[]){
-		
+			LaunchHelper lh = new LaunchHelper();
+			
+			 BasicConfigurator.configure();
+
+		     log.setLevel(Level.DEBUG); // optional if log4j.properties file not used
+		     // Possible levels: TRACE, DEBUG, INFO, WARN, ERROR, and FATAL
+
+			System.out.println(lh.genUniqueRandomStr());
 	}
 
 }
