@@ -10,6 +10,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 
 public class LaunchHelper {
@@ -77,6 +78,48 @@ public class LaunchHelper {
     	
     }
 	
+    public String generateRandomStr(){
+    	
+    	String randomStr = null;
+    	
+    	randomStr = RandomStringUtils.randomAlphabetic(6);
+    	
+    	return randomStr;
+    }
+    
+    public boolean checkRandomStr(String randomStr){
+    	
+    	boolean bool = false;
+		Connection conn = getDBConnection();
+		PreparedStatement pst = null;
+		String sql = null;
+		ResultSet rs = null;
+
+		String count = null;
+		sql = "select count(*) from betausers where refId in(?)";
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, randomStr);
+		
+			rs = pst.executeQuery();
+		
+		  log.debug("after execute query");
+		  while (rs.next()) {
+		        count = rs.getString(1);
+		       }
+		  
+  		  pst.close();
+  		  rs.close();
+    	
+  		  if(count.equals("0")){
+  			  bool = true;
+  		  }
+		 } catch (SQLException e) {
+				// TODO Auto-generated catch block
+			 log.error("exception occoured during sql execution. error is:"+e.getMessage());
+			}
+    	return bool;
+    }
 	
 	private Connection getDBConnection(){
 		
@@ -117,6 +160,10 @@ public class LaunchHelper {
 		    }
 		    return result;
 		  	
+	}
+	
+	public static void main(String args[]){
+		
 	}
 
 }
