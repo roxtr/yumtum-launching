@@ -79,7 +79,12 @@
 							}
 						},
 						error: function() {
-							alert("sorry, there seems to be a problem\nplease try again later");
+							//alert("sorry, there seems to be a problem\nplease try again later");
+							$("form").fadeOut(1000, function() {
+								$("#thanks_error").fadeIn(1000);
+								//alert('www.yumtum.in/?refId'+jsonObj.refId);
+								
+							});
 						}
 					});
 					return false;
