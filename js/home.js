@@ -56,12 +56,25 @@
 							}
 						},
 						success: function(msg) {
-							if(msg=="success") {
+							var jsonObj = eval('('+msg+')');
+				//			alert(jsonObj.result);
+				//			alert(jsonObj.refId);
+							if(jsonObj.result=="success") {
 								$("form").fadeOut(1000, function() {
 									$("#thanks").fadeIn(1000);
+									//alert('www.yumtum.in/?refId'+jsonObj.refId);
+									$("#url").append('www.yumtum.in/?refId='+jsonObj.refId);
 								});
-							} else {
-								alert(msg);
+							} else if (jsonObj.result=="exists"){
+								//alert(jsonObj.result);
+								//alert(jsonObj.refId);
+								$("form").fadeOut(1000, function() {
+									$("#thanks_ex").fadeIn(1000);
+									//alert('www.yumtum.in/?refId'+jsonObj.refId);
+									$("#url_ex").append('www.yumtum.in/?refId='+jsonObj.refId);
+								});
+							}else {
+					//			alert(msg);
 								window.location.reload()
 							}
 						},

@@ -30,12 +30,25 @@
 			<div id="loader"></div>
 			<label class="disclaimer">*we promise not to spam you or give your email address to any third parties</label>
 		</form>
-
+<!-- 
 		<div id="thanks">
-			<h3>thanks</h3>
+		    <input id="email_disp" type="email" name="email" value=""/>
+			<div>thanks</div>
 			<h4>we'll be in touch soon!</h4>
 		</div>
-
+ -->
+ 		<div id="thanks">
+ 			<h4>Thanks !! Please share this with your friends.</h4>
+ 			   <div id="url"></div>
+		</div>
+		<div id="thanks_ex">
+ 			<h4>Thanks Again !! Please share this with your friends.</h4>
+ 			   <div id="url_ex"></div>
+		</div>
+		<div id="thanks_error">
+ 			<h4>There seems to be a problem right now. Please drop a mail to contact@yumtum.in to register.</h4>
+ 		</div>
+		
 	</section>
 	
 </body>

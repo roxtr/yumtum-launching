@@ -162,22 +162,44 @@ label.disclaimer {
 
 #thanks {
 	display:none;
-	float:right;
+	float:left;
 	height:140px;
-	text-align:center;
-	width:390px
-	}
-
-h3,h4 {
-	color:#96cdcc
+	color:#ffffff;
+	width:390px;
 	}
 	
-h3 {
-	font-size:75px;
+#thanks_ex {
+	display:none;
+	float:left;
+	height:140px;
+	color:#ffffff;
+	width:390px;
+	}
+	
+	
+#thanks_erroe {
+	display:none;
+	float:left;
+	height:140px;
+	color:#ffffff;
+	width:390px;
+	}
+	
+	
+#url {
+	font-size:25px;
 	letter-spacing:-3px;
 	margin-top:15px;
+	color:#ffffff;
 	}
 
+#url_ex {
+	font-size:25px;
+	letter-spacing:-3px;
+	margin-top:15px;
+	color:#befbef;
+	}
+	
 footer {
 	display:block;
 	clear:both;
@@ -218,11 +240,3 @@ footer span {
 	margin-right:13px;
 	}
 	
-#social_networks a{
-	 height:16px;
-	 width:16px;
-	 }
-	 
-#social_networks a:hover {
-	border:1px solid #fa3a8d;
-	}

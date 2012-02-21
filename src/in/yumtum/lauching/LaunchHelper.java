@@ -14,28 +14,36 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.BasicConfigurator;
+import org.json.simple.JSONObject;
 
 public class LaunchHelper {
 
 	static Logger log = Logger.getLogger(LaunchHelper.class);
 	
-    public String insertData(String email,String srefId){
+    @SuppressWarnings("unchecked")
+	public String insertData(String email,String srefId){
     	
     	log.info("In LaunchHelper.insertData");
     	
     	String result = null;
+    	int dbRegId = 0;
+		String dbEmail = null;
+		String dbUrefId = null;
+		
+		String urefId = null;
+		
     	try{		
     		log.debug("In try block before getting connection");
     		Connection conn = getDBConnection();
     		PreparedStatement pst = null;
     		String sql = null;
     		ResultSet rs = null;
-    		String count = null;
+    		
     		conn.setAutoCommit(true);
     		
     		//log.debug("after getting connection and initializing variables"+conn);
     		
-    		sql = "select count(*) from betausers where email in(?)";
+    		sql = "select regID,urefId from betausers where email in(?)";
     		  
     		  log.debug("before setting prepared statement");
     		  pst = conn.prepareStatement(sql);
@@ -44,19 +52,20 @@ public class LaunchHelper {
     		  rs = pst.executeQuery();
     		  log.debug("after execute query");
     		  while (rs.next()) {
-    		        count = rs.getString(1);
+    		        dbRegId = rs.getInt(1);
+    		        dbUrefId = rs.getString(2);
     		       }
     		  
        		  pst.close();
        		  rs.close();
-       		  log.debug("Count should be 1 if email exists: count:"+count);
-       		if(count.equals("0")){
+       		  log.debug("dbRegId should be non zero if email exists: count:"+dbRegId);
+       		if(dbRegId == 0){
        			log.debug("in If count is 0");
         		java.util.Date dt = new java.util.Date();
         		java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
            		String currentTime = sdf.format(dt);
            		
-           		String urefId = genUniqueRandomStr();
+           		urefId = genUniqueRandomStr();
            		
 	       	  	sql = "insert into betausers (email,regDate,srefId,urefId) values(?,?,?,?)";
 	    		pst = conn.prepareStatement(sql);
@@ -78,10 +87,30 @@ public class LaunchHelper {
     	}
     	catch (Exception e) {
     		log.error("exception occoured during sql execution. error is:"+e.getMessage());
+    		 e.printStackTrace();
     		result = "failure";
     	  }
     	
-    	return result;
+    	JSONObject jObj = new JSONObject();
+    	
+    	if (result.equals("success")){
+    		
+    		jObj.put("result", result);
+    		jObj.put("refId", urefId);
+    		
+    	} else if(result.equals("exists")){
+    		
+    		jObj.put("result", result);
+    		jObj.put("refId", dbUrefId);
+
+    	}else{
+    		
+    		jObj.put("result", result);
+    		jObj.put("refId", "");
+
+    	}
+    	
+    	return jObj.toJSONString();
     	
     }
 	
@@ -124,6 +153,7 @@ public class LaunchHelper {
 		 } catch (SQLException e) {
 				// TODO Auto-generated catch block
 			 log.error("exception occoured during sql execution. error is:"+e.getMessage());
+			 e.printStackTrace();
 			}
     	return bool;
     }
@@ -187,12 +217,12 @@ public class LaunchHelper {
 	public static void main(String args[]){
 			LaunchHelper lh = new LaunchHelper();
 			
-			 BasicConfigurator.configure();
+	/*		 BasicConfigurator.configure();
 
 		     log.setLevel(Level.DEBUG); // optional if log4j.properties file not used
 		     // Possible levels: TRACE, DEBUG, INFO, WARN, ERROR, and FATAL
 
 			System.out.println(lh.genUniqueRandomStr());
-	}
+*/	}
 
 }

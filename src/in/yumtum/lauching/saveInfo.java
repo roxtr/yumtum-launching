@@ -52,6 +52,7 @@ public class saveInfo extends HttpServlet {
 			
 			log.error(e.getMessage());
 		}
+		log.debug("The Response::"+resp);
 		
 		response.setContentType("text/html");
    	    PrintWriter out = response.getWriter();
