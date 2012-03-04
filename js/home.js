@@ -32,7 +32,7 @@
 					return false;
 				} else {
 					var dataString = "email=" + $("#email_box").val() ;
-					dataString = dataString+"&refId=";
+					dataString = dataString+"&refId="+ $("#refId").val();
 					$("#submit_button").hide();
 					$("label.disclaimer").hide();
 					$("#loader").show();

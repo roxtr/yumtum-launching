@@ -177,7 +177,7 @@ label.disclaimer {
 	}
 	
 	
-#thanks_erroe {
+#thanks_error {
 	display:none;
 	float:left;
 	height:140px;
@@ -209,8 +209,8 @@ footer {
 	}
 
 #social_networks {
-	background-color:#ddd;
-	color:#999;
+	background-color:#ccc;
+	color:#111;
 	height:42px;
 	line-height:42px;
 	margin-bottom:13px;
@@ -226,9 +226,10 @@ footer a {
 	font-size:11px;
 	font-weight:700;
 	height:24px;
-	margin:13px 13px 0 0;
+	margin:10px 10px 0 0;
 	text-decoration:none;
 	text-transform:uppercase;
+	width: 32px;
 	}
 
 footer a:hover {
@@ -239,4 +240,8 @@ footer span {
 	float:left;
 	margin-right:13px;
 	}
+	
+	a.twitter{background:url(../img/twitter.png) no-repeat 0}
+	
+	a.facebook{background:url(../img/facebook.png) no-repeat 0}
 	
