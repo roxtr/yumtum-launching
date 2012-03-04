@@ -3,6 +3,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="description" content="coming soon .. a Novel and Easy way to book restaurant tables online ..." />
+<meta name="keywords" content="table booking online, restaurants online, restaurants india" />
 <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen"/>
 <link rel="stylesheet" href="css/home.css" type="text/css" media="screen"/>
 
@@ -10,6 +12,7 @@
  <script type="text/javascript" src="js/home.js"></script>
 
 <title>yumtum.in - Launching soon</title>
+
 </head>
 <body>
 	<header>
@@ -85,5 +88,6 @@
   })();
 
 </script>
+<div style="display: none"><img src="./img/logo.png"/></div>
 </body>
 </html>
