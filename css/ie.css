@@ -1,0 +1,44 @@
+/* ------------HEADER------------ */
+
+a.logo {
+	background:url(../img/logo.png) no-repeat 0 0;
+}
+
+#tagline {
+	line-height:40px;
+}
+
+#tagline p {
+	float:left;
+	margin-right:15px;
+	overflow:hidden;
+}
+
+span.bracket {
+	width:15px;
+}
+
+span.left {
+	margin:-2px 15px 0 0;
+}
+
+/* ------------CONTENT------------ */
+
+h2 {
+	padding-bottom:5px;
+}
+
+#email_box {
+	color:#999;
+}
+
+#submit_button {
+	background:rgb(226,230,225);
+	padding:5px 30px 5px 5px;
+	width:160px;
+}
+
+label.disclaimer {
+	float:right;
+}
+

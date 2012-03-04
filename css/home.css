@@ -64,7 +64,7 @@ section {
    -moz-border-radius:10px;
    -webkit-border-radius:10px;
 	border:none;border-radius:10px;
-	background:#222222 url(../img/section_bg.png) repeat-x top left;
+	background:#e2e6e1 url(../img/section_bg.png) repeat-x top left;
 	clear:both;
 	display:block;
 	height:140px;
@@ -140,7 +140,7 @@ form a:hover {
 	-webkit-border-radius:10px;
 	border:none;border-radius:10px;
 	clear:left;color:#---;cursor:pointer;
-	font-size:17px;padding:5px 37px 5px 11px}
+	font-size:17px;padding:5px 20px 5px 11px}
 
 #submit_button:hover { 
 background-color:#e1942c;}
@@ -241,7 +241,4 @@ footer span {
 	margin-right:13px;
 	}
 	
-	a.twitter{background:url(../img/twitter.png) no-repeat 0}
-	
-	a.facebook{background:url(../img/facebook.png) no-repeat 0}
 	

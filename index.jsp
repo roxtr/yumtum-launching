@@ -10,6 +10,17 @@
 
  <script type="text/javascript" src="js/jquery.min.js"></script>
  <script type="text/javascript" src="js/home.js"></script>
+ 
+ 	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<script type="text/javascript" src="js/ie.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/ie8.css" title="ie8" media="screen" />
+	<![endif]-->
+
+	<!--[if lt IE 8]>
+		<link rel="stylesheet" type="text/css" href="css/ie.css" title="ie" media="screen" />
+	<![endif]-->
+ 
 
 <title>yumtum.in - Launching soon</title>
 
@@ -57,13 +68,13 @@
 	</section>
 	<footer>
 		<div id="social_networks">
-			<span>you can follow us on: </span>
-			<a class="twitter" href="http://twitter.com/yumtumindia" title="Twitter!" target="_blank"></a>
+			<span>Follow us on: </span>
+			<a class="twitter" href="http://twitter.com/yumtumindia" title="Twitter!" target="_blank"><img src="./img/twitter.png"/></a>
 			
-			<a class="facebook" href="http://www.facebook.com/yumtum" title="Facebook!" target="_blank"></a>
+			<a class="facebook" href="http://www.facebook.com/yumtumindia" title="Facebook!" target="_blank"><img src="./img/facebook.png"/></a>
 		</div>
 	</footer>
-	<a title="Web Analytics" href="http://getclicky.com/66550580"><img alt="Web Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+	<a title="Web Analytics" href="http://getclicky.com/66550580" style="display: none;"><img alt="Web Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
 	<script type="text/javascript">
 	var clicky_site_ids = clicky_site_ids || [];
 	clicky_site_ids.push(66550580);
