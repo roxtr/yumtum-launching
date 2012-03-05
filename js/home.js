@@ -1,23 +1,10 @@
 <!--
 		
 		$(document).ready(function(){
-	
-			$("#email_box").focus(function() {
-				$(this).val("");
-				$(this).css("color", "rgb(102,102,102)");
-			});
-			$("#email_box").blur(function() {
-				if(this.value === "") {
-					$(this).val("your email");
-					$(this).css("color", "rgb(204,204,204)");
-					$("#email_box").css("border-color", "rgb(153,153,153)");
-				}
-			});
-			
-			$("#submit_button").click(function() {
+			$("#submit_img").click(function() {
 				var hasError = false;
 				var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-				var emailAddress = $("#email_box").val();
+				var emailAddress = $("#email").val();
 				
 				if(emailAddress == "" || emailAddress == "your email") {
 					hasError = true;
@@ -27,15 +14,14 @@
 				
 				if(hasError) {
 					$("#error").show().fadeOut(3000);
-					$("#email_box").css("border-color", "rgb(255,0,0)");
-					$("#email_box").focus();
 					return false;
 				} else {
-					var dataString = "email=" + $("#email_box").val() ;
+					var dataString = "email=" + $("#email").val() ;
 					dataString = dataString+"&refId="+ $("#refId").val();
-					$("#submit_button").hide();
-					$("label.disclaimer").hide();
-					$("#loader").show();
+					$("#sendbox").hide().fadeOut(2000,function(){
+						$("#loader").show().fadeIn(2000);	
+					});
+					
 					$.ajax({
 						type: "POST",
 						url: "./saveInfo",
@@ -60,20 +46,19 @@
 				//			alert(jsonObj.result);
 				//			alert(jsonObj.refId);
 							if(jsonObj.result=="success") {
-								$("form").fadeOut(1000, function() {
+									$("#loader").fadeOut(1000);
 									$("#thanks").fadeIn(1000);
 									//alert('www.yumtum.in/?refId'+jsonObj.refId);
-									$("#url").append('www.yumtum.in/?refId='+jsonObj.refId);
-								});
+									$("#url").append('<a href="http://www.yumtum.in/?refId='+jsonObj.refId+'">www.yumtum.in/?refId='+jsonObj.refId+'</a>');
+								
 							} else if (jsonObj.result=="exists"){
 								//alert(jsonObj.result);
 								//alert(jsonObj.refId);
-								$("form").fadeOut(1000, function() {
+									$("#loader").fadeOut(1000);
 									$("#thanks_ex").fadeIn(1000);
 									//alert('www.yumtum.in/?refId'+jsonObj.refId);
-									$("#url_ex").append('www.yumtum.in/?refId='+jsonObj.refId);
-								});
-							}else {
+									$("#url_ex").append('<a href="http://www.yumtum.in/?refId='+jsonObj.refId+'">www.yumtum.in/?refId='+jsonObj.refId+'</a>');
+								}else {
 					//			alert(msg);
 								window.location.reload()
 							}
@@ -81,6 +66,7 @@
 						error: function() {
 							//alert("sorry, there seems to be a problem\nplease try again later");
 							$("form").fadeOut(1000, function() {
+								$("#loader").fadeOut(1000);
 								$("#thanks_error").fadeIn(1000);
 								//alert('www.yumtum.in/?refId'+jsonObj.refId);
 								

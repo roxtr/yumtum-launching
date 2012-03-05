@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,4 +101,77 @@
 </script>
 <div style="display: none"><img src="./img/logo.png"/></div>
 </body>
-</html>
+</html> --%>
+
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Yumtum - Coming Soon..</title>
+  <link href="main.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="main.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/home.js"></script>
+
+  <script type="text/javascript">
+	function onSubmitImg() {
+		document.getElementById("submit_img").setAttribute("src", "images/submit.png");
+	}
+	function onSubmitImgOut() {
+		document.getElementById("submit_img").setAttribute("src", "images/submit1.png");
+	}
+  </script>
+</head>
+<body>
+<div class="container">
+  <div class="logoheader" style="background:transparent url('images/logoheader_black.png') repeat-x;">
+    <img alt="Logo" src="images/yumtum_logo.png">
+  </div>
+  <h1>Coming Soon....</h1>
+  <h2>A <span style="color:#d1841C;"><b>NOVEL</b></span> and <span style="color:#d1841C;"><b>EASY</b></span> way <br/>to book restaurant tables online!
+  </h2>
+  
+  <div class="sendpanel">
+  <div  id="sendbox">
+	<h3 style="margin-top:25px;">Signup for private beta:</h3>
+    <h4><b>* we promise not to spam you or give your email address to any third parties.</b></h4>
+  <div class="inputbox">
+  <form accept-charset="UTF-8" action="#" data-remote="true" method="post"><div id="theForm" style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="Usp6T2eKIEGgD2fedrVpH+Hu+gd7CWLu/s2UuXcbcp4="></div>
+  
+  <input class="email_field" id="email" name="email" placeholder="Type your email address..." type="email">
+  <input id="submit_img" class="submit_button" src="images/submit1.png" type="image" onmouseover="javascript:onSubmitImg();" onmouseout="javascript:onSubmitImgOut();">
+<label id="error">please enter a valid email address</label>
+<input id="refId" type="hidden" value="${param.refId}">
+</form>  
+</div>
+</div>
+  
+  <div id="loader" style="display: none;"><img src="images/ajax-loader.gif"/></div>
+  
+   		<div id="thanks" style="display: none;">
+ 			<h4>Thanks !! Please share this with your friends.</h4>
+ 		<div id="url"></div>
+		</div>
+		<div id="thanks_ex" style="display: none;">
+ 			<h4>Thanks Again !! Please share this with your friends.</h4>
+ 			   <div id="url_ex"></div>
+		</div>
+		<div id="thanks_error" style="display: none;">
+ 			<h4>There seems to be a problem right now. Please drop a mail to contact@yumtum.in to register.</h4>
+ 		</div>
+  
+
+</div>
+  
+
+  
+  </div>
+
+<div class="footer">
+		<div class="links">
+			<a href="http://facebook.com/yumtumindia" class="facebook" target="_blank"><img src="images/facebook.png" alt="facebook"></a><img src="images/dot.png" alt=""><a href="https://twitter.com/yumtumindia" class="twitter" target="_blank"><img src="images/twitter.png" alt="twitter"></a>
+		</div>
+		<div class="bottom-text">
+			<p class="copyright">© 2012 <a style="text-decoration: none;" href="/">Yumtum.in</a>. All rights reserved.</p>
+		</div>
+	</div>
+
+
+</body></html>
