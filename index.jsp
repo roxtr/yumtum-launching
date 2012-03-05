@@ -69,9 +69,9 @@
 	<footer>
 		<div id="social_networks">
 			<span>Follow us on: </span>
-			<a class="twitter" href="http://twitter.com/yumtumindia" title="Twitter!" target="_blank"><img src="./img/twitter.png"/></a>
+			<a class="twitter" href="http://twitter.com/yumtumindia" title="Follow us at @yumtumindia" target="_blank"><img src="./img/twitter.png" style="margin-top: -5px;"/></a>
 			
-			<a class="facebook" href="http://www.facebook.com/yumtumindia" title="Facebook!" target="_blank"><img src="./img/facebook.png"/></a>
+			<a class="facebook" href="http://www.facebook.com/yumtumindia" title="Like us facebook.com/yumtumindia" target="_blank"><img src="./img/facebook.png" style="margin-top: -5px;"/></a>
 		</div>
 	</footer>
 	<a title="Web Analytics" href="http://getclicky.com/66550580" style="display: none;"><img alt="Web Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>

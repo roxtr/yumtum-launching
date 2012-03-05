@@ -93,21 +93,48 @@ public class LaunchHelper {
     	
     	JSONObject jObj = new JSONObject();
     	
+    	String subj;
+    	String message;
+    	
     	if (result.equals("success")){
     		
     		jObj.put("result", result);
     		jObj.put("refId", urefId);
+    		
+    		subj = "Thanks for signing Up";
+    		message = "<div>Hi "+email+", <p>Thanks for joining the Yumtum beta list. We'll send you an invite soon.</p><p>In the meantime, you can follow us on <span><a href='www.twitter.com/yumtumindia'>Twitter</a></span>  or on <span><a href='www.facebook.com/yumtumindia'>Facebook</a></span> to get the inside scoop .</p></div>" +
+    				"<p>Go ahead and share the URL ( http://www.yumtum.in/?refId="+urefId+" )with your friends and spread the joy.</p><p>\n \n \n \n - Team Yumtum</p>";
+
+    		SendMail sendMail = new SendMail("hello@yumtum.in", email, subj, message);
+    		sendMail.send();
+    		
     		
     	} else if(result.equals("exists")){
     		
     		jObj.put("result", result);
     		jObj.put("refId", dbUrefId);
 
+    		
+    		subj = "Thanks for stopping by again";
+    		message = "<div>Hi "+email+", <p>Thanks for coming back. We will contact you shortly with a beta invite.</p><p>In the meantime, you can follow us on <span><a href='www.twitter.com/yumtumindia'>Twitter</a></span>  or on <span><a href='www.facebook.com/yumtumindia'>Facebook</a></span> to get the inside scoop .</p></div>" +
+    				"<p>Go ahead and share the URL ( http://www.yumtum.in/?refId="+dbUrefId+" )with your friends and spread the joy.</p><p>\n \n \n \n - Team Yumtum</p>";
+
+    		SendMail sendMail = new SendMail("hello@yumtum.in", email, subj, message);
+    		sendMail.send();
+
+    		
     	}else{
     		
     		jObj.put("result", result);
     		jObj.put("refId", "");
 
+    		
+    		subj = "Thanks for stopping by ..";
+    		message = "<div>Hi, <p>Thanks for stopping by.There seems to be a problem with our servers right now.</p>\n\n<p> Please send a reply to this mail, we would then add you " +
+    				"to the beta invites list.</p></div><div><p>\n \n \n \n - Team Yumtum</p></div>";
+
+    		SendMail sendMail = new SendMail("hello@yumtum.in", email, subj, message);
+    		sendMail.send();
     	}
     	
     	return jObj.toJSONString();
