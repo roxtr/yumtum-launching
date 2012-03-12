@@ -78,12 +78,14 @@ public class LaunchHelper {
 	    		pst.executeUpdate();
 	    		log.debug("after insert statement execute query");
 	    		  pst.close();
-	    		  conn.close();
+	    		  
 	    		  result = "success";
        		}else {
+	    		  
        			log.debug("in else. We will be here if email exists in db already");
        			result = "exists";
        		}
+       		conn.close();
     	}
     	catch (Exception e) {
     		log.error("exception occoured during sql execution. error is:"+e.getMessage());
@@ -103,7 +105,7 @@ public class LaunchHelper {
     		
     		subj = "Thanks for signing Up";
     		message = "<div>Hi "+email+", <p>Thanks for joining the Yumtum beta list. We'll send you an invite soon.</p><p>In the meantime, you can follow us on <span><a href='www.twitter.com/yumtumindia'>Twitter</a></span>  or on <span><a href='www.facebook.com/yumtumindia'>Facebook</a></span> to get the inside scoop .</p></div>" +
-    				"<p>Go ahead and share the URL ( http://www.yumtum.in/?refId="+urefId+" )with your friends and spread the joy.</p><p>\n \n \n \n - Team Yumtum</p>";
+    				"<p>Go ahead and share the URL ( http://www.yumtum.in/?refId="+urefId+" )with your friends and spread the joy. </p><p>\n <b>More you share, sooner you get the beta access.</b> :-) </p><p>\n \n \n \n - Team Yumtum</p>";
 
     		SendMail sendMail = new SendMail("hello@yumtum.in", email, subj, message);
     		sendMail.send();
@@ -117,7 +119,7 @@ public class LaunchHelper {
     		
     		subj = "Thanks for stopping by again";
     		message = "<div>Hi "+email+", <p>Thanks for coming back. We will contact you shortly with a beta invite.</p><p>In the meantime, you can follow us on <span><a href='www.twitter.com/yumtumindia'>Twitter</a></span>  or on <span><a href='www.facebook.com/yumtumindia'>Facebook</a></span> to get the inside scoop .</p></div>" +
-    				"<p>Go ahead and share the URL ( http://www.yumtum.in/?refId="+dbUrefId+" )with your friends and spread the joy.</p><p>\n \n \n \n - Team Yumtum</p>";
+    				"<p>Go ahead and share the URL ( http://www.yumtum.in/?refId="+dbUrefId+" )with your friends and spread the joy.</p><p> \n <b>More you share, sooner you get the beta access.</b> :-) </p><p>\n \n \n \n - Team Yumtum</p>";
 
     		SendMail sendMail = new SendMail("hello@yumtum.in", email, subj, message);
     		sendMail.send();
@@ -130,7 +132,7 @@ public class LaunchHelper {
 
     		
     		subj = "Thanks for stopping by ..";
-    		message = "<div>Hi, <p>Thanks for stopping by.There seems to be a problem with our servers right now.</p>\n\n<p> Please send a reply to this mail, we would then add you " +
+    		message = "<div>Hi, <p>Thanks for stopping by.There seems to be a problem with our servers right now. :-( </p>\n\n<p> Please send a reply to this mail, we would then add you " +
     				"to the beta invites list.</p></div><div><p>\n \n \n \n - Team Yumtum</p></div>";
 
     		SendMail sendMail = new SendMail("hello@yumtum.in", email, subj, message);
@@ -173,7 +175,7 @@ public class LaunchHelper {
 		  
   		  pst.close();
   		  rs.close();
-    	
+  		  conn.close();
   		  if(count.equals("0")){
   			  bool = true;
   		  }
@@ -182,7 +184,7 @@ public class LaunchHelper {
 			 log.error("exception occoured during sql execution. error is:"+e.getMessage());
 			 e.printStackTrace();
 			}
-    	return bool;
+		return bool;
     }
     
     public String genUniqueRandomStr(){

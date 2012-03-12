@@ -60,6 +60,8 @@ h4{font:13px/21px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#AAAAAA;text
 	color:red;
 	display:none;
 	float:right;
+	font-size: 10px;
+	font-weight: bold;
 	}
 
 	#thanks {

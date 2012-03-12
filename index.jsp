@@ -106,7 +106,9 @@
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Yumtum - Coming Soon..</title>
-  <link href="main.css" media="screen" rel="stylesheet" type="text/css">
+  <meta name="description" content="coming soon .. a Novel and Easy way to book restaurant tables online ..." />
+  <meta name="keywords" content="table booking online, restaurants online, restaurants india" />
+   <link href="main.css" media="screen" rel="stylesheet" type="text/css">
   <script src="main.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/home.js"></script>
 
@@ -146,11 +148,11 @@
   <div id="loader" style="display: none;"><img src="images/ajax-loader.gif"/></div>
   
    		<div id="thanks" style="display: none;">
- 			<h4>Thanks !! Please share this with your friends.</h4>
+ 			<h4>Thanks !! Please share this with your friends. <b>More you share, sooner you get the beta access.</b></h4>
  		<div id="url"></div>
 		</div>
 		<div id="thanks_ex" style="display: none;">
- 			<h4>Thanks Again !! Please share this with your friends.</h4>
+ 			<h4>Thanks Again !! Please share this with your friends. <b>More you share, sooner you get the beta access.</b></h4>
  			   <div id="url_ex"></div>
 		</div>
 		<div id="thanks_error" style="display: none;">
@@ -173,5 +175,29 @@
 		</div>
 	</div>
 
+	<a title="Web Analytics" href="http://getclicky.com/66550580" style="display: none;"><img alt="Web Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+	<script type="text/javascript">
+	var clicky_site_ids = clicky_site_ids || [];
+	clicky_site_ids.push(66550580);
+	(function() {
+	  var s = document.createElement('script');
+	  s.type = 'text/javascript';
+	  s.async = true;
+	  s.src = '//static.getclicky.com/js';
+	  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+	})();
+	</script>
+	<script type="text/javascript">
 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29695817-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body></html>
